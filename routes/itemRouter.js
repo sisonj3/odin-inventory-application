@@ -1,5 +1,4 @@
 const itemController = require("../controllers/itemController");
-const db = require("../db/queries");
 
 const { Router } = require("express");
 

@@ -2,7 +2,17 @@
 
 <body>
     <h1>Items</h1>
-    <p><%= items %></p>
+    <ul>
+        <% items.map((item) => { %>
+            <li>
+                <h2><%= item.name %></h2>
+                <p>Category: <%= item.category %></p>
+                <p>$<%= item.price %></p>
+            </li>
+        <% }) %>
+    </ul>
+
+    <button>Add Item</button>
 </body>
 
 </html>

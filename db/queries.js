@@ -10,6 +10,7 @@ async function getAllItems() {
 
 async function getAllCategories() {
     const { rows } = await pool.query("SELECT * FROM type;");
+    return rows;
 }
 
 module.exports = {
