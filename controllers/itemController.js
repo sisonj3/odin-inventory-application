@@ -26,6 +26,9 @@ const newItemForm = asyncHandler(async (req, res) => {
 
 const updateItemDatabase = asyncHandler(async (req, res) => {
     console.log(req.body);
+
+    await db.addItem(req.body.itemName, req.body.category, req.body.price);
+
     res.redirect("/item");
 });
 
