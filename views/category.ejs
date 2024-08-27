@@ -4,7 +4,10 @@
     <h1>Categories</h1>
     <ul>
         <% categories.map((category)=> { %>
-            <li><%= category.name %></li>
+            <li>
+                <h2><%= category.name %></h2>
+                <button onclick="location.href='/category/edit/<%= category.id %>'">Edit</button>
+            </li>
         <% }) %>
     </ul>
 

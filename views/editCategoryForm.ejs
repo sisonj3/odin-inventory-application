@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Edit Category</h1>
+
+    <form method="POST" action="/category/edit/<%= type.id %>">
+        <div>
+            <label for="categoryName">Category Name</label>
+            <input type="text" id="categoryName" name="categoryName" required="required" value="<%= type.name %>">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

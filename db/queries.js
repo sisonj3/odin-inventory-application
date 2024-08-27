@@ -18,9 +18,19 @@ async function editItem(id, newName, newTypeID, newPrice) {
                         WHERE id = ${id};`);
 }
 
+async function editCategory(id, newName) {
+    await pool.query(`UPDATE type
+                        SET name = '${newName}'
+                        WHERE id = ${id};`);
+}
 
 async function getItem(id) {
     const { rows } = await pool.query(`SELECT * FROM items WHERE id = ${id};`);
+    return rows;
+}
+
+async function getCategory(id) {
+    const { rows } = await pool.query(`SELECT * FROM type WHERE id = ${id};`);
     return rows;
 }
 
@@ -41,7 +51,9 @@ module.exports = {
     addItem,
     addCategory,
     editItem,
+    editCategory,
     getItem,
+    getCategory,
     getAllItems,
     getAllCategories
 }

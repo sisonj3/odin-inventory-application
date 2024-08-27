@@ -16,7 +16,14 @@ const newCategoryForm = (req, res) => {
     res.render("categoryForm");
 };
 
-const updateCategoryDatabase = asyncHandler(async (req, res) => {
+const editCategoryForm = asyncHandler(async (req, res) => {
+    // Wait for db to get category with id#
+    const type = await db.getCategory(req.params.typeID);
+
+    res.render("editCategoryForm", { type: type[0] });
+});
+
+const addToCategoryDatabase = asyncHandler(async (req, res) => {
     console.log(req.body);
 
     await db.addCategory(req.body.categoryName);
@@ -24,8 +31,16 @@ const updateCategoryDatabase = asyncHandler(async (req, res) => {
     res.redirect("/category");
 });
 
+const updateCategoryDatabase = asyncHandler(async (req, res) => {
+    await db.editCategory(req.params.typeID, req.body.categoryName);
+
+    res.redirect("/category");
+});
+
 module.exports = {
     getCategories,
     newCategoryForm,
+    editCategoryForm,
+    addToCategoryDatabase,
     updateCategoryDatabase
 };
