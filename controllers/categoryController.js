@@ -12,6 +12,20 @@ const getCategories = asyncHandler(async (req, res) => {
     res.render("category", { categories: categories });
 });
 
+const newCategoryForm = (req, res) => {
+    res.render("categoryForm");
+};
+
+const updateCategoryDatabase = asyncHandler(async (req, res) => {
+    console.log(req.body);
+
+    await db.addCategory(req.body.categoryName);
+
+    res.redirect("/category");
+});
+
 module.exports = {
     getCategories,
+    newCategoryForm,
+    updateCategoryDatabase
 };

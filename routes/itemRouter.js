@@ -11,7 +11,10 @@ itemRouter.get("/", itemController.getItems);
 itemRouter.get("/new", itemController.newItemForm);
 
 // Update database and redirect to "/item"
-itemRouter.post("/new", itemController.updateItemDatabase)
+itemRouter.post("/new", itemController.addToItemDatabase);
+
+// Edit item with id#
+itemRouter.get("/edit/:itemID", itemController.editItemForm);
 
 
 module.exports = itemRouter;

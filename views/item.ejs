@@ -8,6 +8,7 @@
                 <h2><%= item.name %></h2>
                 <p>Category: <%= item.category %></p>
                 <p>$<%= item.price %></p>
+                <button onclick="location.href='/item/edit/<%= item.id %>'">Edit</button>
             </li>
         <% }) %>
     </ul>
