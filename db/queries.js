@@ -12,9 +12,9 @@ async function addCategory(name) {
                         ('${name}');`);
 }
 
-async function editItem(id, name, typeID, price) {
+async function editItem(id, newName, newTypeID, newPrice) {
     await pool.query(`UPDATE items
-                        SET name = ${name}, typeID = ${typeID}, price = ${price}
+                        SET name = '${newName}', typeID = ${newTypeID}, price = ${newPrice}
                         WHERE id = ${id};`);
 }
 
