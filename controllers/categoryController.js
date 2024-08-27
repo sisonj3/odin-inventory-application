@@ -37,10 +37,17 @@ const updateCategoryDatabase = asyncHandler(async (req, res) => {
     res.redirect("/category");
 });
 
+const deleteCategoryFromDatabase = asyncHandler(async (req, res) => {
+    await db.deleteType(req.params.typeID);
+
+    res.redirect("/category");
+});
+
 module.exports = {
     getCategories,
     newCategoryForm,
     editCategoryForm,
     addToCategoryDatabase,
-    updateCategoryDatabase
+    updateCategoryDatabase,
+    deleteCategoryFromDatabase
 };

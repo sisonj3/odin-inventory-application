@@ -19,4 +19,7 @@ itemRouter.get("/edit/:itemID", itemController.editItemForm);
 // Update database with new informationn
 itemRouter.post("/edit/:itemID", itemController.updateItemDatabase);
 
+// Router to delete item
+itemRouter.get("/delete/:itemID", itemController.deleteItemFromDatabase);
+
 module.exports = itemRouter;

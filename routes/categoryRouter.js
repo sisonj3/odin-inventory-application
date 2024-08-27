@@ -19,4 +19,7 @@ categoryRouter.get("/edit/:typeID", categoryController.editCategoryForm);
 // Update database with new informationn
 categoryRouter.post("/edit/:typeID", categoryController.updateCategoryDatabase);
 
+// Router to delete category
+categoryRouter.get("/delete/:typeID", categoryController.deleteCategoryFromDatabase);
+
 module.exports = categoryRouter;

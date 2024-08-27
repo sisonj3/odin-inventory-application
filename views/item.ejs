@@ -9,6 +9,7 @@
                 <p>Category: <%= item.category %></p>
                 <p>$<%= item.price %></p>
                 <button onclick="location.href='/item/edit/<%= item.id %>'">Edit</button>
+                <button onclick="location.href='/item/delete/<%= item.id %>'">Delete</button>
             </li>
         <% }) %>
     </ul>

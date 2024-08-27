@@ -46,9 +46,14 @@ const addToItemDatabase = asyncHandler(async (req, res) => {
 
 const updateItemDatabase = asyncHandler(async (req, res) => {
     console.log(req.body);
-    
+
     await db.editItem(req.params.itemID, req.body.itemName, req.body.category, req.body.price);
 
+    res.redirect("/item");
+});
+
+const deleteItemFromDatabase = asyncHandler(async (req, res) => {
+    await db.deleteItem(req.params.itemID);
     res.redirect("/item");
 });
 
@@ -57,5 +62,6 @@ module.exports = {
     newItemForm,
     addToItemDatabase,
     editItemForm,
-    updateItemDatabase
+    updateItemDatabase,
+    deleteItemFromDatabase
 };
